@@ -38,3 +38,4 @@ I built this to practice Python events. I also learned to keep secrets in \.env`
 - `KeyError: DISCORD_TOKEN` → create `.env` from `.env.example` and paste your token.
 - Bot doesn’t respond → enable **Message Content Intent** in the Developer Portal.
 - Windows: use `python -m pip install -r requirements.txt` then `python bot.py`.
+
