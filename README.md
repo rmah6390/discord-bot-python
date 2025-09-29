@@ -9,13 +9,13 @@
 - `!roll [sides]` → roll a die (default 6)
 - `!addtodo <text>` / `!listtodos` / `!cleartodos`
 
-I built this to practice Python events. I also learned to keep secrets in \.env`.`
+I built this to practice Python events. I also learned to keep secrets in `.env`.
 
 ## Setup
 1) Create a bot in Discord Developer Portal and enable **Message Content Intent**.
 2) Create `.env` from `.env.example` with your token (do not commit `.env`).
-3) python -m pip install -r requirements.txt
-4) python bot.py
+python -m pip install -r requirements.txt
+python bot.py
 
 ## What I learned
 - Enabling intents or commands won’t work
@@ -29,9 +29,9 @@ I built this to practice Python events. I also learned to keep secrets in \.env`
 
 ## Project structure
 .
-├─ bot.py            # commands + JSON TODO storage
-├─ requirements.txt  # deps
-├─ .env.example      # token template
+├─ bot.py # commands + JSON TODO storage
+├─ requirements.txt # deps
+├─ .env.example # token template
 └─ LICENSE
 
 ## Troubleshooting
@@ -39,3 +39,5 @@ I built this to practice Python events. I also learned to keep secrets in \.env`
 - Bot doesn’t respond → enable **Message Content Intent** in the Developer Portal.
 - Windows: use `python -m pip install -r requirements.txt` then `python bot.py`.
 
+## License
+MIT — see [LICENSE](./LICENSE).
