@@ -1,3 +1,4 @@
+# Minimal student project: simple commands + JSON storage per guild
 import os, json, random
 from dotenv import load_dotenv
 import discord
