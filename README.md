@@ -4,6 +4,7 @@ Small practice bot while learning Python + Discord API. Commands:
 - `!ping` → "Pong!"
 - `!roll [sides]` → roll a die (default 6)
 - `!addtodo <text>` / `!listtodos` / `!cleartodos` → JSON todos per server
+
 I built this to practice Python events and keeping secrets in `.env`.
 
 ## Setup
