@@ -18,6 +18,3 @@ I built this to practice Python events. I also learned to keep secrets in \.env`
 - Loading secrets from `.env` (dotenv)
 - Simple command handling + JSON storage
 
-## Next steps
-- Add `!remindme`
-- Switch JSON → SQLite if list grows
