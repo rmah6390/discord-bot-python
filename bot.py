@@ -6,6 +6,12 @@ from discord.ext import commands
 
 DATA_FILE = "todos.json"
 
+load_dotenv()
+TOKEN = os.getenv("DISCORD_TOKEN")
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix="!", intents=intents, help_command=None)
+
 def load_todos():
     try:
         with open(DATA_FILE, "r") as f:
@@ -17,29 +23,35 @@ def save_todos(data):
     with open(DATA_FILE, "w") as f:
         json.dump(data, f, indent=2)
 
-load_dotenv()
-TOKEN = os.getenv("DISCORD_TOKEN")
-intents = discord.Intents.default()
-intents.message_content = True
-bot = commands.Bot(command_prefix="!", intents=intents, help_command=None)
+def is_server():
+    async def predicate(ctx):
+        if ctx.guild is None:
+            await ctx.send("This command only works in servers.")
+            return False
+        return True
+    return commands.check(predicate)
+
 
 @bot.event
 async def on_ready():
     print("Logged in as " + str(bot.user))
 
 @bot.command()
+@is_server()
 async def ping(ctx):
     await ctx.send("Pong!")
 
 @bot.command()
+@is_server()
 async def roll(ctx, sides: int = 6):
     if sides < 2:
         await ctx.send("Please pick 2 or more sides (try 6).")
         return
     value = random.randint(1, sides)
-    await ctx.send("You rolled: " + str(value))
+    await ctx.send(f"You rolled: {value}" )
 
 @bot.command()
+@is_server()
 async def addtodo(ctx, *, item: str):
     data = load_todos()
     key = str(ctx.guild.id)
@@ -50,6 +62,7 @@ async def addtodo(ctx, *, item: str):
     await ctx.send("Added: " + item)
 
 @bot.command()
+@is_server()
 async def listtodos(ctx):
     data = load_todos()
     items = data.get(str(ctx.guild.id), [])
@@ -64,6 +77,7 @@ async def listtodos(ctx):
     await ctx.send(text)
 
 @bot.command()
+@is_server()
 async def cleartodos(ctx):
     data = load_todos()
     data[str(ctx.guild.id)] = []
@@ -71,6 +85,7 @@ async def cleartodos(ctx):
     await ctx.send("Cleared todos.")
 
 @bot.command()
+@is_server()
 async def help(ctx):
     msg = (
         "**Commands**\n"
