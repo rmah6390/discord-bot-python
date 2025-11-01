@@ -37,12 +37,10 @@ async def on_ready():
     print(f"Logged in as {bot.user}" )
 
 @bot.command()
-@is_server()
 async def ping(ctx):
     await ctx.send("Pong!")
 
 @bot.command()
-@is_server()
 async def roll(ctx, sides: int = 6):
     if sides < 2:
         await ctx.send("Please pick 2 or more sides (try 6).")
@@ -85,7 +83,6 @@ async def cleartodos(ctx):
     await ctx.send("Cleared todos.")
 
 @bot.command()
-@is_server()
 async def help(ctx):
     msg = (
         "**Commands**\n"
