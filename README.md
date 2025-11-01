@@ -2,9 +2,12 @@
 ![discord.py](https://img.shields.io/badge/discord.py-2.x-informational)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
+[Invite RidhaBot](https://discord.com/oauth2/authorize?client_id=1422055610240991232&scope=bot%20applications.commands&permissions=3072)
+
+
 # Discord Bot (Python)
 
-Tiny bot built with `discord.py` to practice **event-driven Python** and keeping secrets in `.env`.
+Tiny bot built with `discord.py` to practice event-driven Python and keeping secrets in `.env`.
 
 ## Commands
 
