@@ -33,7 +33,7 @@ async def ping(ctx):
 
 @bot.command()
 async def roll(ctx, sides: int = 6):
-   if sides < 2:
+    if sides < 2:
         await ctx.send("Please pick 2 or more sides (try 6).")
         return
     value = random.randint(1, sides)
