@@ -34,7 +34,7 @@ def is_server():
 
 @bot.event
 async def on_ready():
-    print("Logged in as " + str(bot.user))
+    print(f"Logged in as {bot.user}" )
 
 @bot.command()
 @is_server()
@@ -59,7 +59,7 @@ async def addtodo(ctx, *, item: str):
         data[key] = []
     data[key].append(item)
     save_todos(data)
-    await ctx.send("Added: " + item)
+    await ctx.send(f"Added: {item}")
 
 @bot.command()
 @is_server()
